@@ -1,12 +1,14 @@
 @component('mail::message')
 # Activation Email
 
-Berikut Kode OTP Anda <b>{{$user->otp}}</b>
-Silahkan Masukkan kode OTP tersebut untuk verifikasi
-akun anda.
+
+Here is your OTP Code
+Please enter the OTP code for verification
+your account.
+
+OTP : <a style="font-size:15px;"><b>{{$user->otp}}</b></a>
 
 @component('mail::button', ['url' => ''])
-Activation
 @endcomponent
 
 Thanks,<br>
