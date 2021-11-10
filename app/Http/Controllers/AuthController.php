@@ -14,6 +14,8 @@ class AuthController extends Controller
 
     public function login(Request $request) {
 
+
+        /// tess
         $validate = Validator::make($request->all(), [
             'email' => 'required',
             'password' => 'required',
