@@ -40,7 +40,7 @@ class ProfileUser extends Controller
                 'user_name' => $user->user_name,
                 'email' => $user->email,
                 'role' => $user->role,
-                'avatar' => $user->avatar =="" ? null : url('/storage/app/').$user->avatar,
+                'avatar' => $user->avatar =="" ? null : $user->avatar,
                 'terdaftar_at' => date('d-m-Y H:i:s', strtotime($user->registered_at)),
                 'created_at' => date('d-m-Y H:i:s', strtotime($user->created_at)),
                 'updated_at' => date('d-m-Y H:i:s', strtotime($user->updated_at)),
@@ -69,7 +69,7 @@ class ProfileUser extends Controller
                 'user_name' => $request->user_name,
                 'email' => $request->email,
                 'role' => $request->role,
-                'avatar' => $path,
+                'avatar' => url('/storage/app/').$path,
             ]);
         return response()->json([
             "success" => 200,
