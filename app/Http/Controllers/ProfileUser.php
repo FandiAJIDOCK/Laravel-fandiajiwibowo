@@ -63,13 +63,14 @@ class ProfileUser extends Controller
 
         $path = $request->file('avatar')->store('public/apiDocs');
        // $url = Storage::url($path);
+       $url= 'http://assessment.abadicenter.com/storage/app';
         User::where('id', $request->id)
             ->update([
                 'name' => $request->name,
                 'user_name' => $request->user_name,
                 'email' => $request->email,
                 'role' => $request->role,
-                'avatar' => url('/storage/app/').$path,
+                'avatar' => $url.$path,
             ]);
         return response()->json([
             "success" => 200,
