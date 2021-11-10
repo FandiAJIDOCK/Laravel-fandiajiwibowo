@@ -35,7 +35,7 @@ class InviteController extends Controller
   
         $respon = [
             'status' => 'success',
-            'msg' => 'Invite email successfully',
+            'msg' => 'Invite email user successfully',
             'errors' => null,
             'content' => [
                 'status_code' => 200,

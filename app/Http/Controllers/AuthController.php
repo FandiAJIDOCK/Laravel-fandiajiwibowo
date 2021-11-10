@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
 
-    public function login(Request $request) {
-
+    public function login(Request $request)
+    {
         $validate = Validator::make($request->all(), [
-            'email' => 'required',
+            'user_name' => 'required',
             'password' => 'required',
         ]);
 
@@ -28,7 +28,7 @@ class AuthController extends Controller
             ];
             return response()->json($respon, 200);
         } else {
-            $credentials = request(['email', 'password']);
+            $credentials = request(['user_name', 'password']);
             $credentials = Arr::add($credentials, 'status', 'aktif');
     
             if (!Auth::attempt($credentials)) {
@@ -41,7 +41,7 @@ class AuthController extends Controller
                 return response()->json($respon, 401);
             }
 
-            $user = User::where('email', $request->email)->first();
+            $user = User::where('user_name', $request->user_name)->first();
             if (! Hash::check($request->password, $user->password, [])) {
                 throw new \Exception('Error in Login');
             }

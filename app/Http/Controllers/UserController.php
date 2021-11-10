@@ -10,6 +10,7 @@ use Illuminate\Support\Arr;
 use App\Models\User;
 use App\Mail\Auth\ActivationEmail;
 use Illuminate\Support\Facades\Mail;
+
 class UserController extends Controller
 {
     
@@ -17,8 +18,9 @@ class UserController extends Controller
     { 
 
         $validator = Validator::make($request->all(), [ 
-            'name' => 'required|max:20',
+            'name' => 'required',
             'email' => 'required|email', 
+            'user_name' => 'required|max:20',
             'password' => 'required', 
             'c_password' => 'required|same:password', 
         ]);
@@ -27,12 +29,21 @@ class UserController extends Controller
             return response()->json(['error'=>$validator->errors()], 401);            
         }
 
-        $user = User::where('email', $request->email)->first();
-      
+        $user = User::where('user_name', $request->user_name)->first();
+        $email = User::where('email', $request->email)->first();
+
         if($user){
             $respon = [
                 'status' => 'Failed',
                 'msg' => 'User is active can not register', 
+            ];
+            return response()->json($respon, 401);     
+        }
+
+        if($email){
+            $respon = [
+                'status' => 'Failed',
+                'msg' => 'Email is active can not register', 
             ];
             return response()->json($respon, 401);     
         }

@@ -20,12 +20,19 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::post('login', 'AuthController@login');
+
+///consume token 
 Route::group(['prefix' => 'auth', 'middleware' => 'auth:sanctum'], function(){
      // manggil controller sesuai bawaan laravel 8
     Route::post('logout',[AuthController::class, 'logout']);
      // manggil controller dengan mengubah namespace di RouteServiceProvider.php biar bisa kayak versi2 sebelumnya
     Route::post('logoutall', 'AuthController@logoutall');
+    Route::post('profile', 'ProfileUser@profile');
+    Route::post('updateprofile', 'ProfileUser@updateprofile');
+    Route::post('activationuseremail', 'ActivationUserEmail@activationuseremail');
+    
 });
+//end 
 
 Route::post('registerform', 'UserController@registerform');
 Route::post('registerformadmin', 'UserController@registerformadmin');
