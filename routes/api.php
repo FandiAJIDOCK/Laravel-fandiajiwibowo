@@ -29,7 +29,7 @@ Route::group(['prefix' => 'auth', 'middleware' => 'auth:sanctum'], function(){
     Route::post('logoutall', 'AuthController@logoutall');
     Route::post('profile', 'ProfileUser@profile');
     Route::post('updateprofile', 'ProfileUser@updateprofile');
-    Route::post('activationuseremail', 'ActivationUserEmail@activationuseremail');
+
     
 });
 //end 
@@ -37,3 +37,4 @@ Route::group(['prefix' => 'auth', 'middleware' => 'auth:sanctum'], function(){
 Route::post('registerform', 'UserController@registerform');
 Route::post('registerformadmin', 'UserController@registerformadmin');
 Route::post('inviteuser', 'InviteController@inviteuser');
+Route::post('activationuseremail', 'ActivationUserEmail@activationuseremail');

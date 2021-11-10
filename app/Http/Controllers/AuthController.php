@@ -30,7 +30,7 @@ class AuthController extends Controller
         } else {
             $credentials = request(['user_name', 'password']);
             $credentials = Arr::add($credentials, 'status', 'aktif');
-    
+            $credentials = Arr::add($credentials, 'verified', 1);
             if (!Auth::attempt($credentials)) {
                 $respon = [
                     'status' => 'error',
