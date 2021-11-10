@@ -32,7 +32,6 @@ class InviteController extends Controller
         }
 
         Mail::to($request->email)->send(new ActivationEmailInvite());
-  
         $respon = [
             'status' => 'success',
             'msg' => 'Invite email user successfully',
@@ -41,7 +40,7 @@ class InviteController extends Controller
                 'status_code' => 200,
             ]
         ];
-
+        
         return response()->json($respon, 200); 
     }
 }

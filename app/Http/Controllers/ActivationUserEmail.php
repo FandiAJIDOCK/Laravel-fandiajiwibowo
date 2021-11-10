@@ -47,7 +47,6 @@ class ActivationUserEmail extends Controller
                 ];
                 return response()->json($respon, 401); 
             }
-
         }
     }
 }

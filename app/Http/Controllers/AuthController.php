@@ -59,7 +59,6 @@ class AuthController extends Controller
             ];
             return response()->json($respon, 200);
         }
-        
     }
 
     public function logout(Request $request)
@@ -74,7 +73,6 @@ class AuthController extends Controller
         ];
 
         return response()->json($respon, 200);
-
     }
 
     public function logoutall(Request $request)
@@ -89,9 +87,6 @@ class AuthController extends Controller
         ];
 
         return response()->json($respon, 200);
-
-
-
     }
 
 }

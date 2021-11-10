@@ -16,7 +16,6 @@ class UserController extends Controller
     
     public function registerform(Request $request) 
     { 
-
         $validator = Validator::make($request->all(), [ 
             'name' => 'required',
             'email' => 'required|email', 
@@ -58,7 +57,6 @@ class UserController extends Controller
         $user->createToken('token-auth')->plainTextToken;
 
         Mail::to($user->email)->send(new ActivationEmail($user));
-  
         $respon = [
             'status' => 'success',
             'msg' => 'Register successfully',
