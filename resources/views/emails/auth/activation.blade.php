@@ -8,8 +8,6 @@ your account.
 
 OTP : <a style="font-size:15px;"><b>{{$user->otp}}</b></a>
 
-@component('mail::button', ['url' => ''])
-@endcomponent
 
 Thanks,<br>
 Developer - Fandi Aji Wibowo
