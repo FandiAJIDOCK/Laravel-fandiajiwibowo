@@ -62,6 +62,7 @@ class ProfileUser extends Controller
         }
 
         $path = $request->file('avatar')->store('public/apiDocs');
+        var_dump($path);die;
         $url = Storage::url($path);
         User::where('id', $request->id)
             ->update([
