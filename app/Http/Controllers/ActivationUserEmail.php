@@ -10,6 +10,7 @@ class ActivationUserEmail extends Controller
 {
     const verified = 1;
     const noverified = 0;
+    
     public function activationuseremail(Request $request)
     {
         $validator = Validator::make($request->all(), [ 
