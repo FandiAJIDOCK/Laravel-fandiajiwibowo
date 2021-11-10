@@ -16,10 +16,6 @@ class UserController extends Controller
     public function registerform(Request $request) 
     { 
 
-      
-     // var_dump( $datax );die;
-      // $datas  = random_int(100000, 999999);;
-      // var_dump( $datas );die;
         $validator = Validator::make($request->all(), [ 
             'name' => 'required|max:20',
             'email' => 'required|email', 
@@ -32,7 +28,6 @@ class UserController extends Controller
         }
 
         $user = User::where('email', $request->email)->first();
-
       
         if($user){
             $respon = [
@@ -46,15 +41,13 @@ class UserController extends Controller
         $input['password'] = bcrypt($input['password']); 
         $input['role'] = 'user'; 
         $input['registered_at'] = date('Y-m-d H:i:s'); 
+        $input['otp'] = random_int(100000, 999999); 
+        $input['verified'] = 0; 
         $user = User::create($input); 
         $user->createToken('token-auth')->plainTextToken;
 
-     // event(new UserActivationEmail($user));
-
-      Mail::to($user->email)->send(new ActivationEmail($user));
-      // var_dump($user);die;
-     // dd($dataxx);
-
+        Mail::to($user->email)->send(new ActivationEmail($user));
+  
         $respon = [
             'status' => 'success',
             'msg' => 'Register successfully',
