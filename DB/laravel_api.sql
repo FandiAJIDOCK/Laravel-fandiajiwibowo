@@ -84,7 +84,7 @@ CREATE TABLE `personal_access_tokens` (
   UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   KEY `personal_access_tokens_tokenable_id_foreign` (`tokenable_id`),
   CONSTRAINT `personal_access_tokens_tokenable_id_foreign` FOREIGN KEY (`tokenable_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `personal_access_tokens` */
 
@@ -92,7 +92,13 @@ insert  into `personal_access_tokens`(`id`,`tokenable_type`,`tokenable_id`,`name
 (11,'App\\Models\\User',1,'token-auth','c3417d43fe4b59f46ec1bf60f0d89f29d5bc34c0c9ec27c0f9903dfa5815a6fc','[\"*\"]',NULL,'2021-11-09 08:25:57','2021-11-09 08:25:57'),
 (12,'App\\Models\\User',1,'token-auth','a1f893b5284819e65b0141e30d884d99eee51206a121e1433e35f19dbe3e4d26','[\"*\"]',NULL,'2021-11-09 08:25:58','2021-11-09 08:25:58'),
 (18,'App\\Models\\User',1,'token-auth','813a9f8f57fe750473b887f2a3ce5b48d77926a0ab3cfb60594685819a103ca1','[\"*\"]',NULL,'2021-11-09 14:08:40','2021-11-09 14:08:40'),
-(64,'App\\Models\\User',1,'token-auth','f80579ab684da23c510645560364012513e7bd72c368c6bfdba1124fdfae0cc7','[\"*\"]',NULL,'2021-11-10 03:36:22','2021-11-10 03:36:22');
+(64,'App\\Models\\User',1,'token-auth','f80579ab684da23c510645560364012513e7bd72c368c6bfdba1124fdfae0cc7','[\"*\"]',NULL,'2021-11-10 03:36:22','2021-11-10 03:36:22'),
+(65,'App\\Models\\User',1,'token-auth','c1e08a067992fc15a61f9f9a46237dfb0f0062e46bdb759776b26a634324261b','[\"*\"]','2021-11-10 09:29:34','2021-11-10 09:29:16','2021-11-10 09:29:34'),
+(66,'App\\Models\\User',1,'token-auth','8aa19718ac57a39edb81268429804ec2af1d426445ce5962caa2b5b49402d6f2','[\"*\"]','2021-11-10 09:55:45','2021-11-10 09:33:31','2021-11-10 09:55:45'),
+(67,'App\\Models\\User',1,'token-auth','8675cbaa76ef9e426e03f26ed4fa8b9cbfb377adeb3a695da928f1e3dd4f8a31','[\"*\"]',NULL,'2021-11-10 10:14:27','2021-11-10 10:14:27'),
+(68,'App\\Models\\User',1,'token-auth','cf236d79f241850ac61ea0b2b707555f1159acd9cdde5251121cbb422c684611','[\"*\"]','2021-11-10 16:16:49','2021-11-10 13:26:26','2021-11-10 16:16:49'),
+(69,'App\\Models\\User',1,'token-auth','daab6f494b48c7fbe008ec4df606221df24c0dcac46aaa034c40fa9b6f94d1f0','[\"*\"]',NULL,'2021-11-10 13:41:52','2021-11-10 13:41:52'),
+(70,'App\\Models\\User',1,'token-auth','65eacf3cec91c1e00cb02d616fafd5070ba190ac0ae8c652b7beebb14517fa71','[\"*\"]',NULL,'2021-11-10 13:42:23','2021-11-10 13:42:23');
 
 /*Table structure for table `users` */
 
@@ -101,6 +107,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -119,8 +126,8 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`name`,`email`,`email_verified_at`,`password`,`status`,`remember_token`,`created_at`,`updated_at`,`role`,`avatar`,`registered_at`,`otp`,`verified`) values 
-(1,'fandi','fndwbw688@gmail.com',NULL,'$2y$10$e1hWQzCGmplP8I1rlG52temfZ1ITXwBM4qCKUo8hKysRyPGO3CdES','aktif',NULL,'2021-11-09 04:36:12','2021-11-09 04:36:12',NULL,NULL,'2021-11-09 15:01:01',234543,1);
+insert  into `users`(`id`,`name`,`user_name`,`email`,`email_verified_at`,`password`,`status`,`remember_token`,`created_at`,`updated_at`,`role`,`avatar`,`registered_at`,`otp`,`verified`) values 
+(1,'XXX','XXX','adsd@gmail.com',NULL,'$2y$10$e1hWQzCGmplP8I1rlG52temfZ1ITXwBM4qCKUo8hKysRyPGO3CdES','aktif',NULL,'2021-11-09 04:36:12','2021-11-10 16:16:49',NULL,'/storage/apiDocs/CErZ1HGhPgLCTIuqxgozMEVfAUn7qsQ6RbAQYvVN.png','2021-11-09 15:01:01',234543,1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
