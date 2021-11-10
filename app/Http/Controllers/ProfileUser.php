@@ -62,15 +62,14 @@ class ProfileUser extends Controller
         }
 
         $path = $request->file('avatar')->store('public/apiDocs');
-        var_dump($path);die;
-        $url = Storage::url($path);
+       // $url = Storage::url($path);
         User::where('id', $request->id)
             ->update([
                 'name' => $request->name,
                 'user_name' => $request->user_name,
                 'email' => $request->email,
                 'role' => $request->role,
-                'avatar' => $url,
+                'avatar' => $path,
             ]);
         return response()->json([
             "success" => 200,
