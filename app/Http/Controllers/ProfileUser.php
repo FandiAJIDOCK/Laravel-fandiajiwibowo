@@ -55,6 +55,7 @@ class ProfileUser extends Controller
         $validator = Validator::make($request->all(), [ 
             'id' => 'required', 
             'email' => 'required|email', 
+            "avatar"  => "dimensions:max_width=256px,max_height=256px",
         ]);
 
         if ($validator->fails()) { 
@@ -62,8 +63,8 @@ class ProfileUser extends Controller
         }
 
         $path = $request->file('avatar')->store('public/apiDocs');
-       // $url = Storage::url($path);
-       $url= 'http://assessment.abadicenter.com/storage/app/';
+        // $url = Storage::url($path);
+        $url= 'http://assessment.abadicenter.com/storage/app/';
         User::where('id', $request->id)
             ->update([
                 'name' => $request->name,
